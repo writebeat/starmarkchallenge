@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Employee from './Employee';
-import '../style/employee.css';
+import '../style/employeeDetails.css';
 
 const detailLine = (item, info) => {
     if (!info[item]) return null;
@@ -27,8 +28,6 @@ class EmployeeDetails extends Component {
         this.setState({
           employee: jsonData,
           loaded: true
-        }, () => {
-          console.log(this.state);
         });
 
       });
@@ -37,7 +36,14 @@ class EmployeeDetails extends Component {
   render() {
     if (this.state.loaded === false) return <span>Loading...</span>;
 
-    return <Employee info={this.state.employee} includeDetails={true}/>
+    return (
+        <main>
+          <div className="backLinkWrapper">
+            <Link to="/" className="backLink"><span>&#8592; Back to list</span></Link>
+          </div>
+          <Employee info={this.state.employee} includeDetails={true}/>
+        </main>
+    )
 
   }
 
