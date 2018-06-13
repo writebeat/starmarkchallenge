@@ -1,0 +1,18 @@
+.userDetails {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.avatar {
+  border-radius: 50%;
+}
+.name {
+  font-weight: bold;
+  font-size: 18px;
+}
+.email {
+  text-transform: lowercase;
+}
+.city {
+  text-transform: capitalize;
+}
