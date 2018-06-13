@@ -1,3 +1,15 @@
+.employee {
+  float: left;
+  width: 100%;
+  margin: 30px 0;
+  text-align: center;
+}
+@media (min-width: 600px) {
+  .employee {
+    width: 50%;
+    text-align: left;
+  }
+}
 .userDetails {
   list-style-type: none;
   margin: 0;
@@ -9,6 +21,13 @@
 .name {
   font-weight: bold;
   font-size: 18px;
+}
+.nameLink {
+  color: #555;
+  text-decoration: none;
+}
+.nameLink:hover {
+  color: #3f6396;
 }
 .email {
   text-transform: lowercase;

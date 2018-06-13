@@ -39,9 +39,24 @@ const Employee = ({info, includeDetails}) => {
     detailLine('city', info.address)
   ];
 
-  if (includeDetails) {
-    if (info.dob) {
+  let image = (
+    <Link to={`/${id}`}>
+      <img alt={[lastName, firstName].join(', ')} className="avatar" src={avatar} />
+    </Link>
+  );
 
+  let name = (
+    <li className="name">
+      <Link className="nameLink" to={`/${id}`}>
+        {lastName}, {firstName}
+      </Link>
+    </li>
+  );
+
+  if (includeDetails) {
+    image = <img alt={[lastName, firstName].join(', ')} className="avatar" src={avatar} />;
+    name = <li className="name">{lastName}, {firstName}</li>
+    if (info.dob) {
       details.push(<li key={info.dob}>Date of Birth: {formatDate(info.dob)}</li>);
     }
     if (info.tags.length) {
@@ -51,16 +66,10 @@ const Employee = ({info, includeDetails}) => {
   }
 
   return (
-    <div>
-      <Link to={`/${id}`}>
-        <img alt={[lastName, firstName].join(', ')} className="avatar" src={avatar} />
-      </Link>
+    <div className="employee">
+      {image}
       <ul className="userDetails">
-        <li className="name">
-          <Link to={`/${id}`}>
-            {lastName}, {firstName}
-          </Link>
-        </li>
+        {name}
         {details}
       </ul>
     </div>

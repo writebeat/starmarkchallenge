@@ -64,11 +64,12 @@ class EmployeeDirectory extends Component {
 
   render() {
     return (
-      <div className="EmployeeDirectory">
-        <h1>Page Title</h1>
+      <main className="EmployeeDirectory">
+        <h1>Widgets Inc.</h1>
+        <h2>Employee Directory</h2>
         <Cities cities={this.state.cities} changeCity={this.changeCity} />
         <EmployeeList employees={this.state.employees} />
-      </div>
+      </main>
     );
   }
 }
