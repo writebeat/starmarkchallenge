@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Employee from './Employee';
 import '../style/employeeDetails.css';
 
-const detailLine = (item, info) => {
-    if (!info[item]) return null;
-    let itemTitle = item.charAt(0).toUpperCase() + item.slice(1);
-    return <li key={item} className={item}>{itemTitle}: {info[item]}</li>
-};
-
+/**
+ * EmployeeDetails class component fetches user data from the API, and
+ * renders it on the page.
+ * @param {Object} match  Object containing the URL parameters passed from
+ *                        the router.
+ * @extends Component
+ */
 class EmployeeDetails extends Component {
   constructor(props) {
     super(props);
+    // Set initial component state.
     this.state = {
       loaded: false,
       employee: {}
@@ -19,12 +22,15 @@ class EmployeeDetails extends Component {
   }
 
   componentWillMount() {
+    // Fetch data from REST API endpoint.
     fetch(`http://challenge-dev.starmarkcloud.com/users/${this.props.match.params.id}`)
       .then(data => {
+        // After it has loaded, convert that data to JSON.
         return data.json();
       })
       .then(jsonData => {
-
+        // Set the component state with the new, updated data retrieved from
+        // the API, and set the 'loaded' flag to true.
         this.setState({
           employee: jsonData,
           loaded: true
@@ -34,8 +40,10 @@ class EmployeeDetails extends Component {
   }
 
   render() {
+    // If the data has not yet loaded, let the user know it is still being loaded.
     if (this.state.loaded === false) return <span>Loading...</span>;
 
+    // Once it has loaded, display the Employee details.
     return (
         <main>
           <div className="backLinkWrapper">
@@ -44,13 +52,15 @@ class EmployeeDetails extends Component {
           <Employee info={this.state.employee} includeDetails={true}/>
         </main>
     )
-
   }
 
 };
 
+// Declare the types of properties expected.
 EmployeeDetails.propTypes = {
-
+  // prop "match" is passed from the Router, and it contains the parameters
+  // passed from the URL.
+  match: PropTypes.object.isRequired
 };
 
 export default EmployeeDetails;

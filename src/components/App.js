@@ -3,6 +3,10 @@ import { Switch, Route } from 'react-router-dom';
 import EmployeeDirectory from './EmployeeDirectory';
 import EmployeeDetails from './EmployeeDetails';
 
+/**
+ * This is the main application that contains the routes
+ * that a user can go to. 
+ */
 const App = () => (
   <main>
     <Switch>
