@@ -6,7 +6,8 @@ import '../style/employeeDetails.css';
 
 /**
  * EmployeeDetails class component fetches user data from the API, and
- * renders it on the page.
+ * renders it on the page. This is the component used for the detail page,
+ * when a user is clicked on.
  * @param {Object} match  Object containing the URL parameters passed from
  *                        the router.
  * @extends Component

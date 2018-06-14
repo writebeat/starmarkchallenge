@@ -1,36 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { formatPhone, formatDate } from './Functions';
+import { formatPhone, formatDate, detailLine } from './Functions';
 import '../style/employee.css';
-
-/**
- * detailLine is a helper function to reduce redundant markup in
- * the Employee component. It will render out a ListItem component,
- * depending on which field (item) it is fed. If it is fed 'phone',
- * then it will first format the number before using it.
- * @param  {String} item    The name of the field we will be rendering.
- * @param  {Object} info    Employee data object containing all the fields.
- * @return {JSX Component}  ListItem component containing the field title,
- *                          as well as the value of that field.
- */
-const detailLine = (item, info) => {
-    if (!info[item]) return null;
-    if (item.toLowerCase() === 'phone') {
-      return (
-          <li key={item}>
-            <span className="itemTitle">{item}: </span>
-            <span className={item}>{formatPhone(info[item])}</span>
-          </li>
-      );
-    }
-    return (
-      <li key={item}>
-        <span className="itemTitle">{item}: </span>
-        <span className={item}>{info[item]}</span>
-      </li>
-    );
-};
 
 /**
  * Employee component renders employee data, including the avatar and

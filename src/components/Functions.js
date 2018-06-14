@@ -1,5 +1,7 @@
+import React from 'react';
+
 /**
- * Takes a phone number in just about any format, and returns
+ * formatPhone takes a phone number in just about any format, and returns
  * a properly formatted phone number: (123) 456-7890 x123. It
  * also ignores any digits before the last 10 digits of the
  * phone number. So, for example: 1-123-456-7890, the 1 in the
@@ -26,7 +28,7 @@ const formatPhone = (phone) => {
 }
 
 /**
- * Takes a date string and formats it as "mm dd, yyyy".
+ * formatDate takes a date string and formats it as "mm dd, yyyy".
  * @param  {String} date A string containing a date.
  * @return {String}      New string containing the formatted date.
  */
@@ -64,4 +66,37 @@ const sortLastNames = (jsonData) => {
   return jsonData;
 }
 
-export { formatPhone, formatDate, sortLastNames };
+/**
+ * detailLine is a helper function to reduce redundant markup in
+ * the Employee component. It will render out a ListItem component,
+ * depending on which field (item) it is fed. If it is fed 'phone',
+ * then it will first format the number before using it.
+ * @param  {String} item    The name of the field we will be rendering.
+ * @param  {Object} info    Employee data object containing all the fields.
+ * @return {JSX Component}  ListItem component containing the field title,
+ *                          as well as the value of that field.
+ */
+const detailLine = (item, info) => {
+    if (!info[item]) return null;
+    if (item.toLowerCase() === 'phone') {
+      return (
+          <li key={item}>
+            <span className="itemTitle">{item}: </span>
+            <span className={item}>{formatPhone(info[item])}</span>
+          </li>
+      );
+    }
+    return (
+      <li key={item}>
+        <span className="itemTitle">{item}: </span>
+        <span className={item}>{info[item]}</span>
+      </li>
+    );
+};
+
+export {
+  formatPhone,
+  formatDate,
+  sortLastNames,
+  detailLine
+};
