@@ -70,23 +70,23 @@ If the project is ready to go, use the following command to build the project in
 
 The following list of components (found in the `src/components` folder), are all the components used in this application.
 
-#### App.js
+### App.js
 The main application that contains the routes that a user can go to.
 
-#### Cities.js
+### Cities.js
 Displays a dropdown list containing all the city names passed to it, and triggers a function call to 'changeCity' when the value is changed.
 
-#### Employee.js
+### Employee.js
 Renders employee data, including the avatar and employee information, with the avatar and name being clickable, leading to the Employee Details page. If the includeDetails flag is passed as true, then it also includes the Date of Birth and Tags fields, and removes the linking funcionality from the avatar and name.
 
-#### EmployeeDetails.js
+### EmployeeDetails.js
 Fetches user data from the API, and renders it on the page. This is the component used for the detail page, when a user is clicked on.
 
-#### EmployeeDirectory.js
+### EmployeeDirectory.js
 The container of the list of employees. It contains  most of the logic for the application, including fetching the list of employees from the API, sorting them, and filtering out the duplicate cities. It then passes the data it processes to the simpler components, whose main job is just to display the content.
 
-#### EmployeeList.js
+### EmployeeList.js
 Takes a list of employee objects, and displays them, and includes a "letter index" that effectively groups the users by the first letter of their last name.
 
-#### Functions.js
+### Functions.js
 Contains a few helper functions, for things such as formatting and sorting, to abstract it away from the actual components. The only purpose of this file is to keep the main components clean of any unnecessary code.
