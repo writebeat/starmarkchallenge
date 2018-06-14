@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { formatPhone, formatDate, detailLine } from './Functions';
+import { formatDate, detailLine } from './Functions';
 import '../style/employee.css';
 
 /**
