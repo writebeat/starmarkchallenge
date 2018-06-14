@@ -14,7 +14,6 @@ const EmployeeList = ({employees}) => {
     }
     output.push(<Employee key={employee.id} info={employee} />);
   }
-
   return output;
 };
 

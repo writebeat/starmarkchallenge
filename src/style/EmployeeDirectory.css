@@ -1,4 +1,4 @@
-.EmployeeDirectory {
+.employeeDirectory {
   margin: 20px;
 }
 h1 {
@@ -9,4 +9,7 @@ h2 {
   font-weight: normal;
   margin: 0 0 20px 0;
   color: lightBlue;
+}
+.employeeList {
+  width: 100%;
 }

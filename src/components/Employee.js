@@ -53,9 +53,13 @@ const Employee = ({info, includeDetails}) => {
     </li>
   );
 
+  let employeeClass = "employee";
+
   if (includeDetails) {
     image = <img alt={[lastName, firstName].join(', ')} className="avatar" src={avatar} />;
     name = <li className="name">{lastName}, {firstName}</li>
+    employeeClass += " details";
+
     if (info.dob) {
       details.push(<li key={info.dob}>Date of Birth: {formatDate(info.dob)}</li>);
     }
@@ -66,7 +70,7 @@ const Employee = ({info, includeDetails}) => {
   }
 
   return (
-    <div className="employee">
+    <div className={employeeClass}>
       {image}
       <ul className="userDetails">
         {name}

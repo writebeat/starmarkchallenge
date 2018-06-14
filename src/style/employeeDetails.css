@@ -12,10 +12,34 @@ main {
   border: 1px solid gray;
   border-radius: 10px;
   padding: 5px 20px;
-
 }
 .backLink:hover {
   color: black;
   border-color: black;
   background: #eee;
+}
+
+.employee.details {
+  width: 100%;
+  max-width: 700px;
+}
+.employee.details .avatar {
+  width: 30%;
+  max-width: none;
+}
+.employee.details .userDetails {
+  width: 60%;
+  margin-top: 5%;
+}
+
+@media (min-width: 700px) {
+  .employee.details {
+    width: 50%;
+    font-size: 14px;
+  }
+}
+@media (min-width: 900px) {
+  .employee.details {
+    font-size: 16px;
+  }
 }
