@@ -60,6 +60,8 @@ Once the project is installed, all that's left to do is run it. The following co
 
     $ npm start
 
+Once the application is running, you should be able to view it on the browser by going to `http://localhost:3000`
+
 ## Build for production
 
 If the project is ready to go, use the following command to build the project into a bundle you can upload to your server, or run locally.
