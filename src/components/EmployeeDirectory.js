@@ -5,6 +5,14 @@ import { sortLastNames } from './Functions';
 
 import '../style/EmployeeDirectory.css';
 
+/**
+ * EmployeeDirectory is the container of the list of employees. It contains
+ * most of the logic for the application, including fetching the list of
+ * employees from the API, sorting them, and filtering out the duplicate
+ * cities. It then passes the data it processes to the simpler components,
+ * whose main job is just to display the content.
+ * @extends Component
+ */
 class EmployeeDirectory extends Component {
   constructor() {
     super();
